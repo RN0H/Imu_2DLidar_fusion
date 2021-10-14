@@ -1,0 +1,17 @@
+#rossrv show     $(PACKAGE)/$(FILE.srv)				##For Reading
+#rossrv show -r  $(PACKAGE)/$(FILE.srv)				##For Reading Raw
+#echo "field type variable" > srv/$(FILE.srv)       ##For Writing 
+
+#AFTER EDITING, cd ~/catkin_ws; catkin_make #compile srv
+
+#FIELD_TYPE VARIABLE Format
+
+#REQUEST
+#-------------
+#RESPONSE
+
+
+string name
+---
+int64 	age
+float32 weight

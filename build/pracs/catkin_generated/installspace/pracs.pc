@@ -1,0 +1,8 @@
+prefix=/home/rohan/catkin_ws/install
+
+Name: pracs
+Description: Description of pracs
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

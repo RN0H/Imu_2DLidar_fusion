@@ -1,0 +1,8 @@
+<launch>
+  <node name="laser_publisher" pkg="pracs" type="laser_pub.py" output="screen"/>
+  <node name="imu_publisher" pkg="pracs" type="imu_pub.py" output="screen"/>
+  <node name="laser_tf_broadcaster_node" pkg="pracs" type="laser_tf_broadcaster.py" output="screen"/>
+  <node name="laser_tf_listner_node" pkg="pracs" type="laser_tf_listner.py" output="screen"/>
+  <node name="laser_geom" pkg="pracs" type="laser_geom.py" output="screen"/>
+   <node type="rviz" name="rviz" pkg="rviz" args="-d pracs/rviz/config_file.rviz" />
+</launch>
