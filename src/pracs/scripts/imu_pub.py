@@ -21,7 +21,6 @@ class Imu_publisher:
 
  	def sample(self):
  		 while not rospy.is_shutdown():
- 		 	
 	 		 	self.pos.x =  0.0
 	 		 	self.pos.y = 0.0
 	 		 	self.pos.z = 0.0
