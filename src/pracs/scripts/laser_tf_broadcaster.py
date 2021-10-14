@@ -24,8 +24,8 @@ class laser_publisher:
                     self.tf_msg.header.frame_id = "imu_frame"
                     self.tf_msg.child_frame_id = "laser_frame"
                     self.tf_msg.transform.translation.x = 4.0+data.x
-                    self.tf_msg.transform.translation.y = 1.0 + data.y
-                    self.tf_msg.transform.translation.z = 3.0 + data.z
+                    self.tf_msg.transform.translation.y = 4.0 + data.y
+                    self.tf_msg.transform.translation.z = 4.0 + data.z
                     quat = quaternion_from_euler(data.roll, data.yaw, data.pitch)
                     self.tf_msg.transform.rotation.x = quat[0]
                     self.tf_msg.transform.rotation.y = quat[1]

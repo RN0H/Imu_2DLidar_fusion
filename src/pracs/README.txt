@@ -1,0 +1,1 @@
+#SET DECAY AS 1 ON RVIZ :)
