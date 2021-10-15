@@ -21,13 +21,12 @@ class Imu_publisher:
 
  	def sample(self):
  		 while not rospy.is_shutdown():
- 		 	
-	 		 	self.pos.x =  1.0
-	 		 	self.pos.y = 4.0
-	 		 	self.pos.z = 3.0
-	 		 	self.pos.roll = 2*sin(math.radians(self.entropy))
-			 	self.pos.yaw = 7*sin(math.radians(self.entropy))
-			 	self.pos.pitch = cos(math.radians(2*self.entropy))
+	 		 	self.pos.x =  0.0
+	 		 	self.pos.y = 0.0
+	 		 	self.pos.z = 0.0
+	 		 	self.pos.roll = 0.0
+			 	self.pos.yaw = 0.0
+			 	self.pos.pitch = self.entropy
 	 		 	self.entropy+=2
 	 		 	self.pub.publish(self.pos)
 	 		 	self.rate.sleep()

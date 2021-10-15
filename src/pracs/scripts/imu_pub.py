@@ -25,7 +25,7 @@ class Imu_publisher:
 	 		 	self.pos.y = 0.0
 	 		 	self.pos.z = 0.0
 	 		 	self.pos.roll = 0.0
-			 	self.pos.yaw = sin(math.radians(self.entropy))
+			 	self.pos.yaw = self.entropy
 			 	self.pos.pitch = 0.0
 	 		 	self.entropy+=2
 	 		 	self.pub.publish(self.pos)
