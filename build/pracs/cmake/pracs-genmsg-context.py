@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+messages_str = "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg;/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
 services_str = "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv"
 pkg_name = "pracs"
 dependencies_str = "std_msgs"

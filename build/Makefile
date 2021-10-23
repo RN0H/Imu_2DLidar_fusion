@@ -532,6 +532,19 @@ actionlib_msgs_generate_messages_cpp/fast:
 .PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named _pracs_generate_messages_check_deps_fuse
+
+# Build rule for target.
+_pracs_generate_messages_check_deps_fuse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _pracs_generate_messages_check_deps_fuse
+.PHONY : _pracs_generate_messages_check_deps_fuse
+
+# fast build rule for target.
+_pracs_generate_messages_check_deps_fuse/fast:
+	$(MAKE) -f pracs/CMakeFiles/_pracs_generate_messages_check_deps_fuse.dir/build.make pracs/CMakeFiles/_pracs_generate_messages_check_deps_fuse.dir/build
+.PHONY : _pracs_generate_messages_check_deps_fuse/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_py
 
 # Build rule for target.
@@ -1092,6 +1105,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_eus"
 	@echo "... actionlib_msgs_generate_messages_cpp"
+	@echo "... _pracs_generate_messages_check_deps_fuse"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_cpp"

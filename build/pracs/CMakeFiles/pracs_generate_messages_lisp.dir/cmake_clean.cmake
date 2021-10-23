@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pracs_generate_messages_lisp"
   "/home/rohan/catkin_ws/devel/share/common-lisp/ros/pracs/msg/mymsg.lisp"
+  "/home/rohan/catkin_ws/devel/share/common-lisp/ros/pracs/msg/fuse.lisp"
   "/home/rohan/catkin_ws/devel/share/common-lisp/ros/pracs/srv/mysrv.lisp"
 )
 

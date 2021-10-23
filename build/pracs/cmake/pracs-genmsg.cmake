@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "pracs: 1 messages, 1 services")
+message(STATUS "pracs: 2 messages, 1 services")
 
 set(MSG_I_FLAGS "-Ipracs:/home/rohan/catkin_ws/src/pracs/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_pracs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pracs" "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" "std_msgs/Header"
 )
 
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
+add_custom_target(_pracs_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pracs" "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" "std_msgs/Header"
+)
+
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_custom_target(_pracs_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pracs" "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" ""
@@ -35,6 +40,12 @@ add_custom_target(_pracs_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(pracs
   "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pracs
+)
+_generate_msg_cpp(pracs
+  "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pracs
@@ -62,6 +73,8 @@ add_dependencies(pracs_generate_messages pracs_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" NAME_WE)
 add_dependencies(pracs_generate_messages_cpp _pracs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
+add_dependencies(pracs_generate_messages_cpp _pracs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_dependencies(pracs_generate_messages_cpp _pracs_generate_messages_check_deps_${_filename})
 
@@ -76,6 +89,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pracs_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(pracs
   "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pracs
+)
+_generate_msg_eus(pracs
+  "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pracs
@@ -103,6 +122,8 @@ add_dependencies(pracs_generate_messages pracs_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" NAME_WE)
 add_dependencies(pracs_generate_messages_eus _pracs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
+add_dependencies(pracs_generate_messages_eus _pracs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_dependencies(pracs_generate_messages_eus _pracs_generate_messages_check_deps_${_filename})
 
@@ -117,6 +138,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pracs_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(pracs
   "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pracs
+)
+_generate_msg_lisp(pracs
+  "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pracs
@@ -144,6 +171,8 @@ add_dependencies(pracs_generate_messages pracs_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" NAME_WE)
 add_dependencies(pracs_generate_messages_lisp _pracs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
+add_dependencies(pracs_generate_messages_lisp _pracs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_dependencies(pracs_generate_messages_lisp _pracs_generate_messages_check_deps_${_filename})
 
@@ -158,6 +187,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pracs_generate_messages_lisp)
 ### Generating Messages
 _generate_msg_nodejs(pracs
   "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pracs
+)
+_generate_msg_nodejs(pracs
+  "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pracs
@@ -185,6 +220,8 @@ add_dependencies(pracs_generate_messages pracs_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" NAME_WE)
 add_dependencies(pracs_generate_messages_nodejs _pracs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
+add_dependencies(pracs_generate_messages_nodejs _pracs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_dependencies(pracs_generate_messages_nodejs _pracs_generate_messages_check_deps_${_filename})
 
@@ -199,6 +236,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pracs_generate_messages_nodejs)
 ### Generating Messages
 _generate_msg_py(pracs
   "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pracs
+)
+_generate_msg_py(pracs
+  "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/melodic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pracs
@@ -225,6 +268,8 @@ add_dependencies(pracs_generate_messages pracs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/mymsg.msg" NAME_WE)
+add_dependencies(pracs_generate_messages_py _pracs_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/msg/fuse.msg" NAME_WE)
 add_dependencies(pracs_generate_messages_py _pracs_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/rohan/catkin_ws/src/pracs/srv/mysrv.srv" NAME_WE)
 add_dependencies(pracs_generate_messages_py _pracs_generate_messages_check_deps_${_filename})

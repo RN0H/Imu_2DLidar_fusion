@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/rohan/catkin_ws/build
 include pracs/CMakeFiles/pracs_generate_messages_py.dir/progress.make
 
 pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_mymsg.py
+pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py
 pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py
 pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py
 pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py
@@ -65,25 +66,34 @@ pracs/CMakeFiles/pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/pyt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG pracs/mymsg"
 	cd /home/rohan/catkin_ws/build/pracs && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/rohan/catkin_ws/src/pracs/msg/mymsg.msg -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg
 
+/home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py: /home/rohan/catkin_ws/src/pracs/msg/fuse.msg
+/home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG pracs/fuse"
+	cd /home/rohan/catkin_ws/build/pracs && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/rohan/catkin_ws/src/pracs/msg/fuse.msg -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg
+
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py: /opt/ros/melodic/lib/genpy/gensrv_py.py
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py: /home/rohan/catkin_ws/src/pracs/srv/mysrv.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV pracs/mysrv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV pracs/mysrv"
 	cd /home/rohan/catkin_ws/build/pracs && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/rohan/catkin_ws/src/pracs/srv/mysrv.srv -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv
 
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_mymsg.py
+/home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for pracs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for pracs"
 	cd /home/rohan/catkin_ws/build/pracs && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg --initpy
 
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_mymsg.py
+/home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py
 /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for pracs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for pracs"
 	cd /home/rohan/catkin_ws/build/pracs && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv --initpy
 
 pracs_generate_messages_py: pracs/CMakeFiles/pracs_generate_messages_py
 pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_mymsg.py
+pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/_fuse.py
 pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/_mysrv.py
 pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/msg/__init__.py
 pracs_generate_messages_py: /home/rohan/catkin_ws/devel/lib/python2.7/dist-packages/pracs/srv/__init__.py

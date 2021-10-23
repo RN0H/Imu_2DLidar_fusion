@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pracs_generate_messages_eus"
   "/home/rohan/catkin_ws/devel/share/roseus/ros/pracs/msg/mymsg.l"
+  "/home/rohan/catkin_ws/devel/share/roseus/ros/pracs/msg/fuse.l"
   "/home/rohan/catkin_ws/devel/share/roseus/ros/pracs/srv/mysrv.l"
   "/home/rohan/catkin_ws/devel/share/roseus/ros/pracs/manifest.l"
 )

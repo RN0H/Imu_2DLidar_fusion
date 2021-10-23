@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/rohan/catkin_ws/build
 include pracs/CMakeFiles/pracs_generate_messages_cpp.dir/progress.make
 
 pracs/CMakeFiles/pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/mymsg.h
+pracs/CMakeFiles/pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/fuse.h
 pracs/CMakeFiles/pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/mysrv.h
 
 
@@ -64,15 +65,23 @@ pracs/CMakeFiles/pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/includ
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from pracs/mymsg.msg"
 	cd /home/rohan/catkin_ws/src/pracs && /home/rohan/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/rohan/catkin_ws/src/pracs/msg/mymsg.msg -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/include/pracs -e /opt/ros/melodic/share/gencpp/cmake/..
 
+/home/rohan/catkin_ws/devel/include/pracs/fuse.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
+/home/rohan/catkin_ws/devel/include/pracs/fuse.h: /home/rohan/catkin_ws/src/pracs/msg/fuse.msg
+/home/rohan/catkin_ws/devel/include/pracs/fuse.h: /opt/ros/melodic/share/std_msgs/msg/Header.msg
+/home/rohan/catkin_ws/devel/include/pracs/fuse.h: /opt/ros/melodic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from pracs/fuse.msg"
+	cd /home/rohan/catkin_ws/src/pracs && /home/rohan/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/rohan/catkin_ws/src/pracs/msg/fuse.msg -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/include/pracs -e /opt/ros/melodic/share/gencpp/cmake/..
+
 /home/rohan/catkin_ws/devel/include/pracs/mysrv.h: /opt/ros/melodic/lib/gencpp/gen_cpp.py
 /home/rohan/catkin_ws/devel/include/pracs/mysrv.h: /home/rohan/catkin_ws/src/pracs/srv/mysrv.srv
 /home/rohan/catkin_ws/devel/include/pracs/mysrv.h: /opt/ros/melodic/share/gencpp/msg.h.template
 /home/rohan/catkin_ws/devel/include/pracs/mysrv.h: /opt/ros/melodic/share/gencpp/srv.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from pracs/mysrv.srv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rohan/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from pracs/mysrv.srv"
 	cd /home/rohan/catkin_ws/src/pracs && /home/rohan/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/rohan/catkin_ws/src/pracs/srv/mysrv.srv -Ipracs:/home/rohan/catkin_ws/src/pracs/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p pracs -o /home/rohan/catkin_ws/devel/include/pracs -e /opt/ros/melodic/share/gencpp/cmake/..
 
 pracs_generate_messages_cpp: pracs/CMakeFiles/pracs_generate_messages_cpp
 pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/mymsg.h
+pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/fuse.h
 pracs_generate_messages_cpp: /home/rohan/catkin_ws/devel/include/pracs/mysrv.h
 pracs_generate_messages_cpp: pracs/CMakeFiles/pracs_generate_messages_cpp.dir/build.make
 

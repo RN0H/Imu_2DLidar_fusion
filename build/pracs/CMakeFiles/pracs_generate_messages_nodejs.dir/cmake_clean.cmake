@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pracs_generate_messages_nodejs"
   "/home/rohan/catkin_ws/devel/share/gennodejs/ros/pracs/msg/mymsg.js"
+  "/home/rohan/catkin_ws/devel/share/gennodejs/ros/pracs/msg/fuse.js"
   "/home/rohan/catkin_ws/devel/share/gennodejs/ros/pracs/srv/mysrv.js"
 )
 

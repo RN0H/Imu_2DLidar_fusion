@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pracs_generate_messages_cpp"
   "/home/rohan/catkin_ws/devel/include/pracs/mymsg.h"
+  "/home/rohan/catkin_ws/devel/include/pracs/fuse.h"
   "/home/rohan/catkin_ws/devel/include/pracs/mysrv.h"
 )
 
