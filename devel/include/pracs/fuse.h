@@ -26,22 +26,22 @@ struct fuse_
 
   fuse_()
     : header()
-    , x(0.0)
-    , y(0.0)
-    , z(0.0)
-    , roll(0.0)
-    , yaw(0.0)
-    , pitch(0.0)
+    , x()
+    , y()
+    , z()
+    , roll()
+    , yaw()
+    , pitch()
     , ranges()  {
     }
   fuse_(const ContainerAllocator& _alloc)
     : header(_alloc)
-    , x(0.0)
-    , y(0.0)
-    , z(0.0)
-    , roll(0.0)
-    , yaw(0.0)
-    , pitch(0.0)
+    , x(_alloc)
+    , y(_alloc)
+    , z(_alloc)
+    , roll(_alloc)
+    , yaw(_alloc)
+    , pitch(_alloc)
     , ranges(_alloc)  {
   (void)_alloc;
     }
@@ -51,22 +51,22 @@ struct fuse_
    typedef  ::std_msgs::Header_<ContainerAllocator>  _header_type;
   _header_type header;
 
-   typedef double _x_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _x_type;
   _x_type x;
 
-   typedef double _y_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _y_type;
   _y_type y;
 
-   typedef double _z_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _z_type;
   _z_type z;
 
-   typedef double _roll_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _roll_type;
   _roll_type roll;
 
-   typedef double _yaw_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _yaw_type;
   _yaw_type yaw;
 
-   typedef double _pitch_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _pitch_type;
   _pitch_type pitch;
 
    typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _ranges_type;
@@ -165,12 +165,12 @@ struct MD5Sum< ::pracs::fuse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "dd21e5928d5fd8f390da15cf6d9e146d";
+    return "928b9f2c3ffde350158f693508e3c987";
   }
 
   static const char* value(const ::pracs::fuse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xdd21e5928d5fd8f3ULL;
-  static const uint64_t static_value2 = 0x90da15cf6d9e146dULL;
+  static const uint64_t static_value1 = 0x928b9f2c3ffde350ULL;
+  static const uint64_t static_value2 = 0x158f693508e3c987ULL;
 };
 
 template<class ContainerAllocator>
@@ -202,13 +202,13 @@ struct Definition< ::pracs::fuse_<ContainerAllocator> >
 "#FIELD_TYPE VARIABLE Format\n"
 "\n"
 "Header header		#seq, time_stamp, id\n"
-"float64 x\n"
-"float64 y\n"
-"float64 z\n"
+"float64[] x\n"
+"float64[] y\n"
+"float64[] z\n"
 "\n"
-"float64 roll\n"
-"float64 yaw\n"
-"float64 pitch\n"
+"float64[] roll\n"
+"float64[] yaw\n"
+"float64[] pitch\n"
 "\n"
 "float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be\n"
 "\n"
@@ -274,18 +274,42 @@ struct Printer< ::pracs::fuse_<ContainerAllocator> >
     s << indent << "header: ";
     s << std::endl;
     Printer< ::std_msgs::Header_<ContainerAllocator> >::stream(s, indent + "  ", v.header);
-    s << indent << "x: ";
-    Printer<double>::stream(s, indent + "  ", v.x);
-    s << indent << "y: ";
-    Printer<double>::stream(s, indent + "  ", v.y);
-    s << indent << "z: ";
-    Printer<double>::stream(s, indent + "  ", v.z);
-    s << indent << "roll: ";
-    Printer<double>::stream(s, indent + "  ", v.roll);
-    s << indent << "yaw: ";
-    Printer<double>::stream(s, indent + "  ", v.yaw);
-    s << indent << "pitch: ";
-    Printer<double>::stream(s, indent + "  ", v.pitch);
+    s << indent << "x[]" << std::endl;
+    for (size_t i = 0; i < v.x.size(); ++i)
+    {
+      s << indent << "  x[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.x[i]);
+    }
+    s << indent << "y[]" << std::endl;
+    for (size_t i = 0; i < v.y.size(); ++i)
+    {
+      s << indent << "  y[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.y[i]);
+    }
+    s << indent << "z[]" << std::endl;
+    for (size_t i = 0; i < v.z.size(); ++i)
+    {
+      s << indent << "  z[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.z[i]);
+    }
+    s << indent << "roll[]" << std::endl;
+    for (size_t i = 0; i < v.roll.size(); ++i)
+    {
+      s << indent << "  roll[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.roll[i]);
+    }
+    s << indent << "yaw[]" << std::endl;
+    for (size_t i = 0; i < v.yaw.size(); ++i)
+    {
+      s << indent << "  yaw[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.yaw[i]);
+    }
+    s << indent << "pitch[]" << std::endl;
+    for (size_t i = 0; i < v.pitch.size(); ++i)
+    {
+      s << indent << "  pitch[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.pitch[i]);
+    }
     s << indent << "ranges[]" << std::endl;
     for (size_t i = 0; i < v.ranges.size(); ++i)
     {

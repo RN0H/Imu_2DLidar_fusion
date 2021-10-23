@@ -39,37 +39,37 @@ class fuse {
         this.x = initObj.x
       }
       else {
-        this.x = 0.0;
+        this.x = [];
       }
       if (initObj.hasOwnProperty('y')) {
         this.y = initObj.y
       }
       else {
-        this.y = 0.0;
+        this.y = [];
       }
       if (initObj.hasOwnProperty('z')) {
         this.z = initObj.z
       }
       else {
-        this.z = 0.0;
+        this.z = [];
       }
       if (initObj.hasOwnProperty('roll')) {
         this.roll = initObj.roll
       }
       else {
-        this.roll = 0.0;
+        this.roll = [];
       }
       if (initObj.hasOwnProperty('yaw')) {
         this.yaw = initObj.yaw
       }
       else {
-        this.yaw = 0.0;
+        this.yaw = [];
       }
       if (initObj.hasOwnProperty('pitch')) {
         this.pitch = initObj.pitch
       }
       else {
-        this.pitch = 0.0;
+        this.pitch = [];
       }
       if (initObj.hasOwnProperty('ranges')) {
         this.ranges = initObj.ranges
@@ -85,17 +85,17 @@ class fuse {
     // Serialize message field [header]
     bufferOffset = std_msgs.msg.Header.serialize(obj.header, buffer, bufferOffset);
     // Serialize message field [x]
-    bufferOffset = _serializer.float64(obj.x, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.x, buffer, bufferOffset, null);
     // Serialize message field [y]
-    bufferOffset = _serializer.float64(obj.y, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.y, buffer, bufferOffset, null);
     // Serialize message field [z]
-    bufferOffset = _serializer.float64(obj.z, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.z, buffer, bufferOffset, null);
     // Serialize message field [roll]
-    bufferOffset = _serializer.float64(obj.roll, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.roll, buffer, bufferOffset, null);
     // Serialize message field [yaw]
-    bufferOffset = _serializer.float64(obj.yaw, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.yaw, buffer, bufferOffset, null);
     // Serialize message field [pitch]
-    bufferOffset = _serializer.float64(obj.pitch, buffer, bufferOffset);
+    bufferOffset = _arraySerializer.float64(obj.pitch, buffer, bufferOffset, null);
     // Serialize message field [ranges]
     bufferOffset = _arraySerializer.float32(obj.ranges, buffer, bufferOffset, null);
     return bufferOffset;
@@ -108,17 +108,17 @@ class fuse {
     // Deserialize message field [header]
     data.header = std_msgs.msg.Header.deserialize(buffer, bufferOffset);
     // Deserialize message field [x]
-    data.x = _deserializer.float64(buffer, bufferOffset);
+    data.x = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [y]
-    data.y = _deserializer.float64(buffer, bufferOffset);
+    data.y = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [z]
-    data.z = _deserializer.float64(buffer, bufferOffset);
+    data.z = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [roll]
-    data.roll = _deserializer.float64(buffer, bufferOffset);
+    data.roll = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [yaw]
-    data.yaw = _deserializer.float64(buffer, bufferOffset);
+    data.yaw = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [pitch]
-    data.pitch = _deserializer.float64(buffer, bufferOffset);
+    data.pitch = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [ranges]
     data.ranges = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
@@ -127,8 +127,14 @@ class fuse {
   static getMessageSize(object) {
     let length = 0;
     length += std_msgs.msg.Header.getMessageSize(object.header);
+    length += 8 * object.x.length;
+    length += 8 * object.y.length;
+    length += 8 * object.z.length;
+    length += 8 * object.roll.length;
+    length += 8 * object.yaw.length;
+    length += 8 * object.pitch.length;
     length += 4 * object.ranges.length;
-    return length + 52;
+    return length + 28;
   }
 
   static datatype() {
@@ -138,7 +144,7 @@ class fuse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'dd21e5928d5fd8f390da15cf6d9e146d';
+    return '928b9f2c3ffde350158f693508e3c987';
   }
 
   static messageDefinition() {
@@ -157,13 +163,13 @@ class fuse {
     #FIELD_TYPE VARIABLE Format
     
     Header header		#seq, time_stamp, id
-    float64 x
-    float64 y
-    float64 z
+    float64[] x
+    float64[] y
+    float64[] z
     
-    float64 roll
-    float64 yaw
-    float64 pitch
+    float64[] roll
+    float64[] yaw
+    float64[] pitch
     
     float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
     
@@ -203,42 +209,42 @@ class fuse {
       resolved.x = msg.x;
     }
     else {
-      resolved.x = 0.0
+      resolved.x = []
     }
 
     if (msg.y !== undefined) {
       resolved.y = msg.y;
     }
     else {
-      resolved.y = 0.0
+      resolved.y = []
     }
 
     if (msg.z !== undefined) {
       resolved.z = msg.z;
     }
     else {
-      resolved.z = 0.0
+      resolved.z = []
     }
 
     if (msg.roll !== undefined) {
       resolved.roll = msg.roll;
     }
     else {
-      resolved.roll = 0.0
+      resolved.roll = []
     }
 
     if (msg.yaw !== undefined) {
       resolved.yaw = msg.yaw;
     }
     else {
-      resolved.yaw = 0.0
+      resolved.yaw = []
     }
 
     if (msg.pitch !== undefined) {
       resolved.pitch = msg.pitch;
     }
     else {
-      resolved.pitch = 0.0
+      resolved.pitch = []
     }
 
     if (msg.ranges !== undefined) {

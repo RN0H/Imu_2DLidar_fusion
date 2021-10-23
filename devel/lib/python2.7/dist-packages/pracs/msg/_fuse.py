@@ -9,7 +9,7 @@ import struct
 import std_msgs.msg
 
 class fuse(genpy.Message):
-  _md5sum = "dd21e5928d5fd8f390da15cf6d9e146d"
+  _md5sum = "928b9f2c3ffde350158f693508e3c987"
   _type = "pracs/fuse"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """#class $(file_name):
@@ -25,13 +25,13 @@ class fuse(genpy.Message):
 #FIELD_TYPE VARIABLE Format
 
 Header header		#seq, time_stamp, id
-float64 x
-float64 y
-float64 z
+float64[] x
+float64[] y
+float64[] z
 
-float64 roll
-float64 yaw
-float64 pitch
+float64[] roll
+float64[] yaw
+float64[] pitch
 
 float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
 
@@ -52,7 +52,7 @@ time stamp
 string frame_id
 """
   __slots__ = ['header','x','y','z','roll','yaw','pitch','ranges']
-  _slot_types = ['std_msgs/Header','float64','float64','float64','float64','float64','float64','float32[]']
+  _slot_types = ['std_msgs/Header','float64[]','float64[]','float64[]','float64[]','float64[]','float64[]','float32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -74,27 +74,27 @@ string frame_id
       if self.header is None:
         self.header = std_msgs.msg.Header()
       if self.x is None:
-        self.x = 0.
+        self.x = []
       if self.y is None:
-        self.y = 0.
+        self.y = []
       if self.z is None:
-        self.z = 0.
+        self.z = []
       if self.roll is None:
-        self.roll = 0.
+        self.roll = []
       if self.yaw is None:
-        self.yaw = 0.
+        self.yaw = []
       if self.pitch is None:
-        self.pitch = 0.
+        self.pitch = []
       if self.ranges is None:
         self.ranges = []
     else:
       self.header = std_msgs.msg.Header()
-      self.x = 0.
-      self.y = 0.
-      self.z = 0.
-      self.roll = 0.
-      self.yaw = 0.
-      self.pitch = 0.
+      self.x = []
+      self.y = []
+      self.z = []
+      self.roll = []
+      self.yaw = []
+      self.pitch = []
       self.ranges = []
 
   def _get_types(self):
@@ -117,8 +117,30 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self
-      buff.write(_get_struct_6d().pack(_x.x, _x.y, _x.z, _x.roll, _x.yaw, _x.pitch))
+      length = len(self.x)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.x))
+      length = len(self.y)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.y))
+      length = len(self.z)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.z))
+      length = len(self.roll)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.roll))
+      length = len(self.yaw)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.yaw))
+      length = len(self.pitch)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.Struct(pattern).pack(*self.pitch))
       length = len(self.ranges)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -150,10 +172,54 @@ string frame_id
         self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.header.frame_id = str[start:end]
-      _x = self
       start = end
-      end += 48
-      (_x.x, _x.y, _x.z, _x.roll, _x.yaw, _x.pitch,) = _get_struct_6d().unpack(str[start:end])
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.x = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.y = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.z = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.roll = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.yaw = s.unpack(str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.pitch = s.unpack(str[start:end])
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -182,8 +248,30 @@ string frame_id
         _x = _x.encode('utf-8')
         length = len(_x)
       buff.write(struct.Struct('<I%ss'%length).pack(length, _x))
-      _x = self
-      buff.write(_get_struct_6d().pack(_x.x, _x.y, _x.z, _x.roll, _x.yaw, _x.pitch))
+      length = len(self.x)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.x.tostring())
+      length = len(self.y)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.y.tostring())
+      length = len(self.z)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.z.tostring())
+      length = len(self.roll)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.roll.tostring())
+      length = len(self.yaw)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.yaw.tostring())
+      length = len(self.pitch)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.pitch.tostring())
       length = len(self.ranges)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -216,10 +304,54 @@ string frame_id
         self.header.frame_id = str[start:end].decode('utf-8', 'rosmsg')
       else:
         self.header.frame_id = str[start:end]
-      _x = self
       start = end
-      end += 48
-      (_x.x, _x.y, _x.z, _x.roll, _x.yaw, _x.pitch,) = _get_struct_6d().unpack(str[start:end])
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.x = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.y = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.z = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.roll = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.yaw = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      s = struct.Struct(pattern)
+      end += s.size
+      self.pitch = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
@@ -242,9 +374,3 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
-_struct_6d = None
-def _get_struct_6d():
-    global _struct_6d
-    if _struct_6d is None:
-        _struct_6d = struct.Struct("<6d")
-    return _struct_6d

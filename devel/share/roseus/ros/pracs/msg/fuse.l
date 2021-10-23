@@ -22,22 +22,22 @@
   (:init
    (&key
     ((:header __header) (instance std_msgs::Header :init))
-    ((:x __x) 0.0)
-    ((:y __y) 0.0)
-    ((:z __z) 0.0)
-    ((:roll __roll) 0.0)
-    ((:yaw __yaw) 0.0)
-    ((:pitch __pitch) 0.0)
+    ((:x __x) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:y __y) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:z __z) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:roll __roll) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:yaw __yaw) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:pitch __pitch) (make-array 0 :initial-element 0.0 :element-type :float))
     ((:ranges __ranges) (make-array 0 :initial-element 0.0 :element-type :float))
     )
    (send-super :init)
    (setq _header __header)
-   (setq _x (float __x))
-   (setq _y (float __y))
-   (setq _z (float __z))
-   (setq _roll (float __roll))
-   (setq _yaw (float __yaw))
-   (setq _pitch (float __pitch))
+   (setq _x __x)
+   (setq _y __y)
+   (setq _z __z)
+   (setq _roll __roll)
+   (setq _yaw __yaw)
+   (setq _pitch __pitch)
    (setq _ranges __ranges)
    self)
   (:header
@@ -73,18 +73,18 @@
    (+
     ;; std_msgs/Header _header
     (send _header :serialization-length)
-    ;; float64 _x
-    8
-    ;; float64 _y
-    8
-    ;; float64 _z
-    8
-    ;; float64 _roll
-    8
-    ;; float64 _yaw
-    8
-    ;; float64 _pitch
-    8
+    ;; float64[] _x
+    (* 8    (length _x)) 4
+    ;; float64[] _y
+    (* 8    (length _y)) 4
+    ;; float64[] _z
+    (* 8    (length _z)) 4
+    ;; float64[] _roll
+    (* 8    (length _roll)) 4
+    ;; float64[] _yaw
+    (* 8    (length _yaw)) 4
+    ;; float64[] _pitch
+    (* 8    (length _pitch)) 4
     ;; float32[] _ranges
     (* 4    (length _ranges)) 4
     ))
@@ -94,18 +94,36 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; std_msgs/Header _header
        (send _header :serialize s)
-     ;; float64 _x
-       (sys::poke _x (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _y
-       (sys::poke _y (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _z
-       (sys::poke _z (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _roll
-       (sys::poke _roll (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _yaw
-       (sys::poke _yaw (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
-     ;; float64 _pitch
-       (sys::poke _pitch (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64[] _x
+     (write-long (length _x) s)
+     (dotimes (i (length _x))
+       (sys::poke (elt _x i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
+     ;; float64[] _y
+     (write-long (length _y) s)
+     (dotimes (i (length _y))
+       (sys::poke (elt _y i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
+     ;; float64[] _z
+     (write-long (length _z) s)
+     (dotimes (i (length _z))
+       (sys::poke (elt _z i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
+     ;; float64[] _roll
+     (write-long (length _roll) s)
+     (dotimes (i (length _roll))
+       (sys::poke (elt _roll i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
+     ;; float64[] _yaw
+     (write-long (length _yaw) s)
+     (dotimes (i (length _yaw))
+       (sys::poke (elt _yaw i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
+     ;; float64[] _pitch
+     (write-long (length _pitch) s)
+     (dotimes (i (length _pitch))
+       (sys::poke (elt _pitch i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+       )
      ;; float32[] _ranges
      (write-long (length _ranges) s)
      (dotimes (i (length _ranges))
@@ -117,18 +135,48 @@
    (buf &optional (ptr- 0))
    ;; std_msgs/Header _header
      (send _header :deserialize buf ptr-) (incf ptr- (send _header :serialization-length))
-   ;; float64 _x
-     (setq _x (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _y
-     (setq _y (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _z
-     (setq _z (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _roll
-     (setq _roll (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _yaw
-     (setq _yaw (sys::peek buf ptr- :double)) (incf ptr- 8)
-   ;; float64 _pitch
-     (setq _pitch (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64[] _x
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _x (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _x i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
+   ;; float64[] _y
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _y (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _y i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
+   ;; float64[] _z
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _z (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _z i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
+   ;; float64[] _roll
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _roll (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _roll i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
+   ;; float64[] _yaw
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _yaw (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _yaw i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
+   ;; float64[] _pitch
+   (let (n)
+     (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
+     (setq _pitch (instantiate float-vector n))
+     (dotimes (i n)
+     (setf (elt _pitch i) (sys::peek buf ptr- :double)) (incf ptr- 8)
+     ))
    ;; float32[] _ranges
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -140,7 +188,7 @@
    self)
   )
 
-(setf (get pracs::fuse :md5sum-) "dd21e5928d5fd8f390da15cf6d9e146d")
+(setf (get pracs::fuse :md5sum-) "928b9f2c3ffde350158f693508e3c987")
 (setf (get pracs::fuse :datatype-) "pracs/fuse")
 (setf (get pracs::fuse :definition-)
       "#class $(file_name):
@@ -156,13 +204,13 @@
 #FIELD_TYPE VARIABLE Format
 
 Header header		#seq, time_stamp, id
-float64 x
-float64 y
-float64 z
+float64[] x
+float64[] y
+float64[] z
 
-float64 roll
-float64 yaw
-float64 pitch
+float64[] roll
+float64[] yaw
+float64[] pitch
 
 float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
 
@@ -186,6 +234,6 @@ string frame_id
 
 
 
-(provide :pracs/fuse "dd21e5928d5fd8f390da15cf6d9e146d")
+(provide :pracs/fuse "928b9f2c3ffde350158f693508e3c987")
 
 

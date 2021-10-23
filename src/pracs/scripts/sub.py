@@ -14,10 +14,10 @@ class fusion:
 		rospy.init_node("fusion", anonymous = True)
 		self.pubmsg = fuse()
 		for i in ("x","y","z","roll","yaw","pitch"):
-			setattr(self.pubmsg,i,0.0)
+			setattr(self.pubmsg,i,[])
 		self.pub = rospy.Publisher("fusion_topic",fuse,queue_size = 10)
-		rospy.Subscriber("scan",LaserScan,self.laser_sub)
 		rospy.Subscriber("imu",mymsg,self.imu_sub)
+		rospy.Subscriber("scan",LaserScan,self.laser_sub)
 
 
 	def laser_sub(self,data):
@@ -26,12 +26,15 @@ class fusion:
 
 
 	def imu_sub(self,data):
-		self.pubmsg.x     	= data.x
-		self.pubmsg.y       = data.y
-		self.pubmsg.z       = data.z
-		self.pubmsg.roll    = data.roll
-		self.pubmsg.pitch   = data.pitch
-		self.pubmsg.yaw     = data.yaw
+		if len(self.pubmsg.x)>=20:
+			for i in ("x","y","z","roll","yaw","pitch"):
+					setattr(self.pubmsg,i,[])
+		self.pubmsg.x.append(data.x)
+		self.pubmsg.y.append(data.y)
+		self.pubmsg.z.append(data.z)
+		self.pubmsg.roll.append(data.roll)
+		self.pubmsg.pitch.append(data.pitch)
+		self.pubmsg.yaw.append(data.yaw)
 		rospy.loginfo("Got imu_data at")
 		self.pub.publish(self.pubmsg)
 		

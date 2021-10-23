@@ -11,12 +11,12 @@
 #FIELD_TYPE VARIABLE Format
 
 Header header		#seq, time_stamp, id
-float64 x
-float64 y
-float64 z
+float64[] x
+float64[] y
+float64[] z
 
-float64 roll
-float64 yaw
-float64 pitch
+float64[] roll
+float64[] yaw
+float64[] pitch
 
 float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
