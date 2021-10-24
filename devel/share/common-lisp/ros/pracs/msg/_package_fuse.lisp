@@ -13,6 +13,8 @@
           YAW
           PITCH-VAL
           PITCH
+          LEN-VAL
+          LEN
           RANGES-VAL
           RANGES
 ))

@@ -16,7 +16,7 @@
 
 (defclass pracs::fuse
   :super ros::object
-  :slots (_header _x _y _z _roll _yaw _pitch _ranges ))
+  :slots (_header _x _y _z _roll _yaw _pitch _len _ranges ))
 
 (defmethod pracs::fuse
   (:init
@@ -28,6 +28,7 @@
     ((:roll __roll) (make-array 0 :initial-element 0.0 :element-type :float))
     ((:yaw __yaw) (make-array 0 :initial-element 0.0 :element-type :float))
     ((:pitch __pitch) (make-array 0 :initial-element 0.0 :element-type :float))
+    ((:len __len) 0)
     ((:ranges __ranges) (make-array 0 :initial-element 0.0 :element-type :float))
     )
    (send-super :init)
@@ -38,6 +39,7 @@
    (setq _roll __roll)
    (setq _yaw __yaw)
    (setq _pitch __pitch)
+   (setq _len (round __len))
    (setq _ranges __ranges)
    self)
   (:header
@@ -65,6 +67,9 @@
   (:pitch
    (&optional __pitch)
    (if __pitch (setq _pitch __pitch)) _pitch)
+  (:len
+   (&optional __len)
+   (if __len (setq _len __len)) _len)
   (:ranges
    (&optional __ranges)
    (if __ranges (setq _ranges __ranges)) _ranges)
@@ -85,6 +90,8 @@
     (* 8    (length _yaw)) 4
     ;; float64[] _pitch
     (* 8    (length _pitch)) 4
+    ;; uint64 _len
+    8
     ;; float32[] _ranges
     (* 4    (length _ranges)) 4
     ))
@@ -124,6 +131,18 @@
      (dotimes (i (length _pitch))
        (sys::poke (elt _pitch i) (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
        )
+     ;; uint64 _len
+#+(or :alpha :irix6 :x86_64)
+       (progn (sys::poke _len (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
+#-(or :alpha :irix6 :x86_64)
+       (cond ((and (class _len) (= (length (_len . bv)) 2)) ;; bignum
+              (write-long (ash (elt (_len . bv) 0) 0) s)
+              (write-long (ash (elt (_len . bv) 1) -1) s))
+             ((and (class _len) (= (length (_len . bv)) 1)) ;; big1
+              (write-long (elt (_len . bv) 0) s)
+              (write-long (if (>= _len 0) 0 #xffffffff) s))
+             (t                                         ;; integer
+              (write-long _len s)(write-long (if (>= _len 0) 0 #xffffffff) s)))
      ;; float32[] _ranges
      (write-long (length _ranges) s)
      (dotimes (i (length _ranges))
@@ -177,6 +196,19 @@
      (dotimes (i n)
      (setf (elt _pitch i) (sys::peek buf ptr- :double)) (incf ptr- 8)
      ))
+   ;; uint64 _len
+     
+#+(or :alpha :irix6 :x86_64)
+      (setf _len (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
+#-(or :alpha :irix6 :x86_64)
+      (setf _len (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
+                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
+              (cond ((= b1 -1) b0)
+                     ((and (= b1  0)
+                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
+                      b0)
+                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
+                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
    ;; float32[] _ranges
    (let (n)
      (setq n (sys::peek buf ptr- :integer)) (incf ptr- 4)
@@ -188,7 +220,7 @@
    self)
   )
 
-(setf (get pracs::fuse :md5sum-) "928b9f2c3ffde350158f693508e3c987")
+(setf (get pracs::fuse :md5sum-) "c7e2b56ed2ef8d6297b44c35edd8ada3")
 (setf (get pracs::fuse :datatype-) "pracs/fuse")
 (setf (get pracs::fuse :definition-)
       "#class $(file_name):
@@ -211,8 +243,9 @@ float64[] z
 float64[] roll
 float64[] yaw
 float64[] pitch
+uint64 len
 
-float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
+float32[] ranges
 
 ================================================================================
 MSG: std_msgs/Header
@@ -234,6 +267,6 @@ string frame_id
 
 
 
-(provide :pracs/fuse "928b9f2c3ffde350158f693508e3c987")
+(provide :pracs/fuse "c7e2b56ed2ef8d6297b44c35edd8ada3")
 
 

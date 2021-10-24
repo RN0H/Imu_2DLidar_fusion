@@ -4,7 +4,7 @@
 #source ~/$(catkin_ws)/devel/setup.bash copy to bashrc 
 
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import String,Float64MultiArray
 from sensor_msgs.msg import LaserScan
 from pracs.msg import mymsg, fuse
 from sensor_msgs.msg import LaserScan
@@ -15,18 +15,21 @@ class fusion:
 		self.pubmsg = fuse()
 		for i in ("x","y","z","roll","yaw","pitch"):
 			setattr(self.pubmsg,i,[])
-		self.pub = rospy.Publisher("fusion_topic",fuse,queue_size = 10)
+		self.pub = rospy.Publisher("fuson_topic",fuse,queue_size = 1)
 		rospy.Subscriber("imu",mymsg,self.imu_sub)
 		rospy.Subscriber("scan",LaserScan,self.laser_sub)
 
 
 	def laser_sub(self,data):
-		self.pubmsg.ranges = data.ranges
-		rospy.loginfo("Got laser_data at")
+		if len(self.pubmsg.ranges)==500:
+			self.pubmsg.ranges.clear()
+		self.pubmsg.ranges.extend(data.ranges)
+		self.pubmsg.len = len(self.pubmsg.ranges)
+
 
 
 	def imu_sub(self,data):
-		if len(self.pubmsg.x)>=20:
+		if len(self.pubmsg.x)>=5:
 			for i in ("x","y","z","roll","yaw","pitch"):
 					setattr(self.pubmsg,i,[])
 		self.pubmsg.x.append(data.x)
@@ -35,7 +38,6 @@ class fusion:
 		self.pubmsg.roll.append(data.roll)
 		self.pubmsg.pitch.append(data.pitch)
 		self.pubmsg.yaw.append(data.yaw)
-		rospy.loginfo("Got imu_data at")
 		self.pub.publish(self.pubmsg)
 		
 

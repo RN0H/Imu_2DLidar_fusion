@@ -119,3 +119,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pracs" TYPE PROGRAM FILES "/home/rohan/catkin_ws/build/pracs/catkin_generated/installspace/imu_pub.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pracs" TYPE PROGRAM FILES "/home/rohan/catkin_ws/build/pracs/catkin_generated/installspace/trial.py")
+endif()
+

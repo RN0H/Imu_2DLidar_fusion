@@ -32,6 +32,7 @@ struct fuse_
     , roll()
     , yaw()
     , pitch()
+    , len(0)
     , ranges()  {
     }
   fuse_(const ContainerAllocator& _alloc)
@@ -42,6 +43,7 @@ struct fuse_
     , roll(_alloc)
     , yaw(_alloc)
     , pitch(_alloc)
+    , len(0)
     , ranges(_alloc)  {
   (void)_alloc;
     }
@@ -68,6 +70,9 @@ struct fuse_
 
    typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _pitch_type;
   _pitch_type pitch;
+
+   typedef uint64_t _len_type;
+  _len_type len;
 
    typedef std::vector<float, typename ContainerAllocator::template rebind<float>::other >  _ranges_type;
   _ranges_type ranges;
@@ -108,6 +113,7 @@ bool operator==(const ::pracs::fuse_<ContainerAllocator1> & lhs, const ::pracs::
     lhs.roll == rhs.roll &&
     lhs.yaw == rhs.yaw &&
     lhs.pitch == rhs.pitch &&
+    lhs.len == rhs.len &&
     lhs.ranges == rhs.ranges;
 }
 
@@ -165,12 +171,12 @@ struct MD5Sum< ::pracs::fuse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "928b9f2c3ffde350158f693508e3c987";
+    return "c7e2b56ed2ef8d6297b44c35edd8ada3";
   }
 
   static const char* value(const ::pracs::fuse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x928b9f2c3ffde350ULL;
-  static const uint64_t static_value2 = 0x158f693508e3c987ULL;
+  static const uint64_t static_value1 = 0xc7e2b56ed2ef8d62ULL;
+  static const uint64_t static_value2 = 0x97b44c35edd8ada3ULL;
 };
 
 template<class ContainerAllocator>
@@ -209,8 +215,9 @@ struct Definition< ::pracs::fuse_<ContainerAllocator> >
 "float64[] roll\n"
 "float64[] yaw\n"
 "float64[] pitch\n"
+"uint64 len\n"
 "\n"
-"float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be\n"
+"float32[] ranges\n"
 "\n"
 "================================================================================\n"
 "MSG: std_msgs/Header\n"
@@ -252,6 +259,7 @@ namespace serialization
       stream.next(m.roll);
       stream.next(m.yaw);
       stream.next(m.pitch);
+      stream.next(m.len);
       stream.next(m.ranges);
     }
 
@@ -310,6 +318,8 @@ struct Printer< ::pracs::fuse_<ContainerAllocator> >
       s << indent << "  pitch[" << i << "]: ";
       Printer<double>::stream(s, indent + "  ", v.pitch[i]);
     }
+    s << indent << "len: ";
+    Printer<uint64_t>::stream(s, indent + "  ", v.len);
     s << indent << "ranges[]" << std::endl;
     for (size_t i = 0; i < v.ranges.size(); ++i)
     {

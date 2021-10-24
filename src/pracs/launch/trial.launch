@@ -1,0 +1,8 @@
+<launch>
+  
+<node name="multis" 
+pkg="pracs" 
+type="trial.py" 
+output="screen"/>
+
+</launch>

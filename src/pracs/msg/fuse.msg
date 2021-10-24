@@ -18,5 +18,6 @@ float64[] z
 float64[] roll
 float64[] yaw
 float64[] pitch
+uint64 len
 
-float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
+float32[] ranges

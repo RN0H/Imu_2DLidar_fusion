@@ -9,7 +9,7 @@ import struct
 import std_msgs.msg
 
 class fuse(genpy.Message):
-  _md5sum = "928b9f2c3ffde350158f693508e3c987"
+  _md5sum = "c7e2b56ed2ef8d6297b44c35edd8ada3"
   _type = "pracs/fuse"
   _has_header = True  # flag to mark the presence of a Header object
   _full_text = """#class $(file_name):
@@ -32,8 +32,9 @@ float64[] z
 float64[] roll
 float64[] yaw
 float64[] pitch
+uint64 len
 
-float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
+float32[] ranges
 
 ================================================================================
 MSG: std_msgs/Header
@@ -51,8 +52,8 @@ time stamp
 #Frame this data is associated with
 string frame_id
 """
-  __slots__ = ['header','x','y','z','roll','yaw','pitch','ranges']
-  _slot_types = ['std_msgs/Header','float64[]','float64[]','float64[]','float64[]','float64[]','float64[]','float32[]']
+  __slots__ = ['header','x','y','z','roll','yaw','pitch','len','ranges']
+  _slot_types = ['std_msgs/Header','float64[]','float64[]','float64[]','float64[]','float64[]','float64[]','uint64','float32[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -62,7 +63,7 @@ string frame_id
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       header,x,y,z,roll,yaw,pitch,ranges
+       header,x,y,z,roll,yaw,pitch,len,ranges
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -85,6 +86,8 @@ string frame_id
         self.yaw = []
       if self.pitch is None:
         self.pitch = []
+      if self.len is None:
+        self.len = 0
       if self.ranges is None:
         self.ranges = []
     else:
@@ -95,6 +98,7 @@ string frame_id
       self.roll = []
       self.yaw = []
       self.pitch = []
+      self.len = 0
       self.ranges = []
 
   def _get_types(self):
@@ -141,6 +145,8 @@ string frame_id
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(struct.Struct(pattern).pack(*self.pitch))
+      _x = self.len
+      buff.write(_get_struct_Q().pack(_x))
       length = len(self.ranges)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -221,6 +227,9 @@ string frame_id
       end += s.size
       self.pitch = s.unpack(str[start:end])
       start = end
+      end += 8
+      (self.len,) = _get_struct_Q().unpack(str[start:end])
+      start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       pattern = '<%sf'%length
@@ -272,6 +281,8 @@ string frame_id
       buff.write(_struct_I.pack(length))
       pattern = '<%sd'%length
       buff.write(self.pitch.tostring())
+      _x = self.len
+      buff.write(_get_struct_Q().pack(_x))
       length = len(self.ranges)
       buff.write(_struct_I.pack(length))
       pattern = '<%sf'%length
@@ -353,6 +364,9 @@ string frame_id
       end += s.size
       self.pitch = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
       start = end
+      end += 8
+      (self.len,) = _get_struct_Q().unpack(str[start:end])
+      start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
       pattern = '<%sf'%length
@@ -374,3 +388,9 @@ def _get_struct_3I():
     if _struct_3I is None:
         _struct_3I = struct.Struct("<3I")
     return _struct_3I
+_struct_Q = None
+def _get_struct_Q():
+    global _struct_Q
+    if _struct_Q is None:
+        _struct_Q = struct.Struct("<Q")
+    return _struct_Q

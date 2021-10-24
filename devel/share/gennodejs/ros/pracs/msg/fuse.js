@@ -26,6 +26,7 @@ class fuse {
       this.roll = null;
       this.yaw = null;
       this.pitch = null;
+      this.len = null;
       this.ranges = null;
     }
     else {
@@ -71,6 +72,12 @@ class fuse {
       else {
         this.pitch = [];
       }
+      if (initObj.hasOwnProperty('len')) {
+        this.len = initObj.len
+      }
+      else {
+        this.len = 0;
+      }
       if (initObj.hasOwnProperty('ranges')) {
         this.ranges = initObj.ranges
       }
@@ -96,6 +103,8 @@ class fuse {
     bufferOffset = _arraySerializer.float64(obj.yaw, buffer, bufferOffset, null);
     // Serialize message field [pitch]
     bufferOffset = _arraySerializer.float64(obj.pitch, buffer, bufferOffset, null);
+    // Serialize message field [len]
+    bufferOffset = _serializer.uint64(obj.len, buffer, bufferOffset);
     // Serialize message field [ranges]
     bufferOffset = _arraySerializer.float32(obj.ranges, buffer, bufferOffset, null);
     return bufferOffset;
@@ -119,6 +128,8 @@ class fuse {
     data.yaw = _arrayDeserializer.float64(buffer, bufferOffset, null)
     // Deserialize message field [pitch]
     data.pitch = _arrayDeserializer.float64(buffer, bufferOffset, null)
+    // Deserialize message field [len]
+    data.len = _deserializer.uint64(buffer, bufferOffset);
     // Deserialize message field [ranges]
     data.ranges = _arrayDeserializer.float32(buffer, bufferOffset, null)
     return data;
@@ -134,7 +145,7 @@ class fuse {
     length += 8 * object.yaw.length;
     length += 8 * object.pitch.length;
     length += 4 * object.ranges.length;
-    return length + 28;
+    return length + 36;
   }
 
   static datatype() {
@@ -144,7 +155,7 @@ class fuse {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '928b9f2c3ffde350158f693508e3c987';
+    return 'c7e2b56ed2ef8d6297b44c35edd8ada3';
   }
 
   static messageDefinition() {
@@ -170,8 +181,9 @@ class fuse {
     float64[] roll
     float64[] yaw
     float64[] pitch
+    uint64 len
     
-    float32[] ranges         # range data [m] (Note: values < range_min or > range_max should be
+    float32[] ranges
     
     ================================================================================
     MSG: std_msgs/Header
@@ -245,6 +257,13 @@ class fuse {
     }
     else {
       resolved.pitch = []
+    }
+
+    if (msg.len !== undefined) {
+      resolved.len = msg.len;
+    }
+    else {
+      resolved.len = 0
     }
 
     if (msg.ranges !== undefined) {

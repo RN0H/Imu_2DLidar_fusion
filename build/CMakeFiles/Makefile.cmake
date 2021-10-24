@@ -28,6 +28,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/rohan/catkin_ws/src/pracs/scripts/laser_tf_broadcaster.py"
   "/home/rohan/catkin_ws/src/pracs/scripts/laser_tf_listner.py"
   "/home/rohan/catkin_ws/src/pracs/scripts/pub.py"
+  "/home/rohan/catkin_ws/src/pracs/scripts/trial.py"
   "/opt/ros/melodic/share/actionlib/cmake/actionlib-msg-extras.cmake"
   "/opt/ros/melodic/share/actionlib/cmake/actionlibConfig-version.cmake"
   "/opt/ros/melodic/share/actionlib/cmake/actionlibConfig.cmake"
