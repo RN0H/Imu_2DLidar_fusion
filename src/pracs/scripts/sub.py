@@ -9,36 +9,44 @@ from sensor_msgs.msg import LaserScan
 from pracs.msg import mymsg, fuse
 from sensor_msgs.msg import LaserScan
 
+#added waiting flag for better sync
 class fusion:
 	def __init__(self):
 		rospy.init_node("fusion", anonymous = True)
+		self.waiting = False
 		self.pubmsg = fuse()
 		for i in ("x","y","z","roll","yaw","pitch"):
 			setattr(self.pubmsg,i,[])
 		self.pub = rospy.Publisher("fuson_topic",fuse,queue_size = 1)
+		rospy.loginfo("in init")
 		rospy.Subscriber("imu",mymsg,self.imu_sub)
 		rospy.Subscriber("scan",LaserScan,self.laser_sub)
 
 
 	def laser_sub(self,data):
-		if len(self.pubmsg.ranges)==500:
-			self.pubmsg.ranges.clear()
-		self.pubmsg.ranges.extend(data.ranges)
-		self.pubmsg.len = len(self.pubmsg.ranges)
+		if self.waiting:
+			rospy.loginfo("in Laser")
+			if len(self.pubmsg.ranges)==500:self.pubmsg.ranges.clear()
+			self.pubmsg.ranges.extend(data.ranges)
+			self.pubmsg.len = len(self.pubmsg.ranges)
+			self.waiting = False
 
 
 
 	def imu_sub(self,data):
-		if len(self.pubmsg.x)>=5:
-			for i in ("x","y","z","roll","yaw","pitch"):
-					setattr(self.pubmsg,i,[])
-		self.pubmsg.x.append(data.x)
-		self.pubmsg.y.append(data.y)
-		self.pubmsg.z.append(data.z)
-		self.pubmsg.roll.append(data.roll)
-		self.pubmsg.pitch.append(data.pitch)
-		self.pubmsg.yaw.append(data.yaw)
-		self.pub.publish(self.pubmsg)
+		if not self.waiting:			
+			rospy.loginfo("in IMu")
+			if len(self.pubmsg.x)>=5:
+				for i in ("x","y","z","roll","yaw","pitch"):
+					setattr(self.pubmsg,i,[])				
+			self.pubmsg.x.append(data.x)
+			self.pubmsg.y.append(data.y)
+			self.pubmsg.z.append(data.z)
+			self.pubmsg.roll.append(data.roll)
+			self.pubmsg.pitch.append(data.pitch)
+			self.pubmsg.yaw.append(data.yaw)
+			self.waiting = True
+			self.pub.publish(self.pubmsg)
 		
 
 
