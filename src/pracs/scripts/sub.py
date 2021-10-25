@@ -25,7 +25,7 @@ class fusion:
 
 	def laser_sub(self,data):
 		if self.waiting:
-			rospy.loginfo("in Laser")
+			rospy.loginfo("in Laser at {}".format(rospy.get_time()))
 			if len(self.pubmsg.ranges)==500:self.pubmsg.ranges.clear()
 			self.pubmsg.ranges.extend(data.ranges)
 			self.pubmsg.len = len(self.pubmsg.ranges)
@@ -35,7 +35,7 @@ class fusion:
 
 	def imu_sub(self,data):
 		if not self.waiting:			
-			rospy.loginfo("in IMu")
+			rospy.loginfo("in IMu at {}".format(rospy.get_time()))
 			if len(self.pubmsg.x)>=5:
 				for i in ("x","y","z","roll","yaw","pitch"):
 					setattr(self.pubmsg,i,[])				
@@ -45,6 +45,7 @@ class fusion:
 			self.pubmsg.roll.append(data.roll)
 			self.pubmsg.pitch.append(data.pitch)
 			self.pubmsg.yaw.append(data.yaw)
+			self.pubmsg.header.stamp = rospy.Time.now()
 			self.waiting = True
 			self.pub.publish(self.pubmsg)
 		

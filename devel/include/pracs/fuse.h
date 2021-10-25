@@ -212,6 +212,7 @@ struct Definition< ::pracs::fuse_<ContainerAllocator> >
 "float64[] y\n"
 "float64[] z\n"
 "\n"
+"\n"
 "float64[] roll\n"
 "float64[] yaw\n"
 "float64[] pitch\n"
