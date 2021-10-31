@@ -1,8 +1,9 @@
 <launch>
   
-<node name="multis" 
+
+<node name="pracs_node" 
 pkg="pracs" 
-type="trial.py" 
+type="pracs_node" 
 output="screen"/>
 
 </launch>

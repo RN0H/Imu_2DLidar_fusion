@@ -381,6 +381,9 @@ message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 //Value Computed by CMake
 pracs_BINARY_DIR:STATIC=/home/rohan/catkin_ws/build/pracs
 
+//Dependencies for target
+pracs_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 pracs_SOURCE_DIR:STATIC=/home/rohan/catkin_ws/src/pracs
 

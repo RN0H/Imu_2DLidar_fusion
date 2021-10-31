@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+pracs/CMakeFiles/pracs_node.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_node.dir/rule
+.PHONY : pracs/CMakeFiles/pracs_node.dir/rule
+
+# Convenience name for target.
+pracs_node: pracs/CMakeFiles/pracs_node.dir/rule
+
+.PHONY : pracs_node
+
+# fast build rule for target.
+pracs_node/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_node.dir/build.make pracs/CMakeFiles/pracs_node.dir/build
+.PHONY : pracs_node/fast
+
+# Convenience name for target.
 pracs/CMakeFiles/pracs_genpy.dir/rule:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_genpy.dir/rule
 .PHONY : pracs/CMakeFiles/pracs_genpy.dir/rule
@@ -1067,6 +1082,33 @@ actionlib_generate_messages_py/fast:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/actionlib_generate_messages_py.dir/build.make pracs/CMakeFiles/actionlib_generate_messages_py.dir/build
 .PHONY : actionlib_generate_messages_py/fast
 
+src/pub.o: src/pub.cpp.o
+
+.PHONY : src/pub.o
+
+# target to build an object file
+src/pub.cpp.o:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_node.dir/build.make pracs/CMakeFiles/pracs_node.dir/src/pub.cpp.o
+.PHONY : src/pub.cpp.o
+
+src/pub.i: src/pub.cpp.i
+
+.PHONY : src/pub.i
+
+# target to preprocess a source file
+src/pub.cpp.i:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_node.dir/build.make pracs/CMakeFiles/pracs_node.dir/src/pub.cpp.i
+.PHONY : src/pub.cpp.i
+
+src/pub.s: src/pub.cpp.s
+
+.PHONY : src/pub.s
+
+# target to generate assembly for a file
+src/pub.cpp.s:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_node.dir/build.make pracs/CMakeFiles/pracs_node.dir/src/pub.cpp.s
+.PHONY : src/pub.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1075,6 +1117,7 @@ help:
 	@echo "... depend"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... pracs_node"
 	@echo "... pracs_genpy"
 	@echo "... edit_cache"
 	@echo "... pracs_generate_messages_py"
@@ -1140,6 +1183,9 @@ help:
 	@echo "... test"
 	@echo "... actionlib_generate_messages_nodejs"
 	@echo "... actionlib_generate_messages_py"
+	@echo "... src/pub.o"
+	@echo "... src/pub.i"
+	@echo "... src/pub.s"
 .PHONY : help
 
 
