@@ -6,4 +6,10 @@ pkg="pracs"
 type="pracs_node" 
 output="screen"/>
 
+
+<node name="pracs_sub" 
+pkg="pracs" 
+type="pracs_sub" 
+output="screen"/>
+
 </launch>

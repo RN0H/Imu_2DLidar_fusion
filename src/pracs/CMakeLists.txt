@@ -138,7 +138,16 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/pracs_node.cpp)
 
+#set(${PROJECT_NAME}_SOURCES
+#     add execs sharing same main   
+#    )
+
 add_executable(pracs_node src/pub.cpp)
+add_executable(pracs_sub src/sub.cpp)
+target_link_libraries(pracs_sub ${catkin_LIBRARIES})
+
+#target_link_libraries(cpppub ${catkin_LIBRARIES})
+#target_link_libraries(cppsub ${catkin_LIBRARIES})
 
 
 ## Rename C++ executable without prefix

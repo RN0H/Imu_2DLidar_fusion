@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+pracs/CMakeFiles/pracs_sub.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_sub.dir/rule
+.PHONY : pracs/CMakeFiles/pracs_sub.dir/rule
+
+# Convenience name for target.
+pracs_sub: pracs/CMakeFiles/pracs_sub.dir/rule
+
+.PHONY : pracs_sub
+
+# fast build rule for target.
+pracs_sub/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_sub.dir/build.make pracs/CMakeFiles/pracs_sub.dir/build
+.PHONY : pracs_sub/fast
+
+# Convenience name for target.
 pracs/CMakeFiles/pracs_node.dir/rule:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_node.dir/rule
 .PHONY : pracs/CMakeFiles/pracs_node.dir/rule
@@ -1109,6 +1124,33 @@ src/pub.cpp.s:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_node.dir/build.make pracs/CMakeFiles/pracs_node.dir/src/pub.cpp.s
 .PHONY : src/pub.cpp.s
 
+src/sub.o: src/sub.cpp.o
+
+.PHONY : src/sub.o
+
+# target to build an object file
+src/sub.cpp.o:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_sub.dir/build.make pracs/CMakeFiles/pracs_sub.dir/src/sub.cpp.o
+.PHONY : src/sub.cpp.o
+
+src/sub.i: src/sub.cpp.i
+
+.PHONY : src/sub.i
+
+# target to preprocess a source file
+src/sub.cpp.i:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_sub.dir/build.make pracs/CMakeFiles/pracs_sub.dir/src/sub.cpp.i
+.PHONY : src/sub.cpp.i
+
+src/sub.s: src/sub.cpp.s
+
+.PHONY : src/sub.s
+
+# target to generate assembly for a file
+src/sub.cpp.s:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_sub.dir/build.make pracs/CMakeFiles/pracs_sub.dir/src/sub.cpp.s
+.PHONY : src/sub.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1117,6 +1159,7 @@ help:
 	@echo "... depend"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... pracs_sub"
 	@echo "... pracs_node"
 	@echo "... pracs_genpy"
 	@echo "... edit_cache"
@@ -1186,6 +1229,9 @@ help:
 	@echo "... src/pub.o"
 	@echo "... src/pub.i"
 	@echo "... src/pub.s"
+	@echo "... src/sub.o"
+	@echo "... src/sub.i"
+	@echo "... src/sub.s"
 .PHONY : help
 
 

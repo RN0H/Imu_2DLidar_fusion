@@ -285,6 +285,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named pracs_sub
+
+# Build rule for target.
+pracs_sub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pracs_sub
+.PHONY : pracs_sub
+
+# fast build rule for target.
+pracs_sub/fast:
+	$(MAKE) -f pracs/CMakeFiles/pracs_sub.dir/build.make pracs/CMakeFiles/pracs_sub.dir/build
+.PHONY : pracs_sub/fast
+
+#=============================================================================
 # Target rules for targets named pracs_node
 
 # Build rule for target.
@@ -1099,6 +1112,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... pracs_sub"
 	@echo "... pracs_node"
 	@echo "... pracs_genpy"
 	@echo "... pracs_generate_messages_py"
