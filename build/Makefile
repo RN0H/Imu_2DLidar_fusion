@@ -324,19 +324,6 @@ pracs_genpy/fast:
 .PHONY : pracs_genpy/fast
 
 #=============================================================================
-# Target rules for targets named pracs_generate_messages_py
-
-# Build rule for target.
-pracs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pracs_generate_messages_py
-.PHONY : pracs_generate_messages_py
-
-# fast build rule for target.
-pracs_generate_messages_py/fast:
-	$(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_py.dir/build.make pracs/CMakeFiles/pracs_generate_messages_py.dir/build
-.PHONY : pracs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named pracs_genlisp
 
 # Build rule for target.
@@ -348,19 +335,6 @@ pracs_genlisp: cmake_check_build_system
 pracs_genlisp/fast:
 	$(MAKE) -f pracs/CMakeFiles/pracs_genlisp.dir/build.make pracs/CMakeFiles/pracs_genlisp.dir/build
 .PHONY : pracs_genlisp/fast
-
-#=============================================================================
-# Target rules for targets named pracs_generate_messages_lisp
-
-# Build rule for target.
-pracs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pracs_generate_messages_lisp
-.PHONY : pracs_generate_messages_lisp
-
-# fast build rule for target.
-pracs_generate_messages_lisp/fast:
-	$(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build
-.PHONY : pracs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named pracs_geneus
@@ -426,6 +400,97 @@ pracs_generate_messages: cmake_check_build_system
 pracs_generate_messages/fast:
 	$(MAKE) -f pracs/CMakeFiles/pracs_generate_messages.dir/build.make pracs/CMakeFiles/pracs_generate_messages.dir/build
 .PHONY : pracs_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_py
+
+# Build rule for target.
+nav_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_py
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	$(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_nodejs
+
+# Build rule for target.
+nav_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_nodejs
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named pracs_generate_messages_py
+
+# Build rule for target.
+pracs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pracs_generate_messages_py
+.PHONY : pracs_generate_messages_py
+
+# fast build rule for target.
+pracs_generate_messages_py/fast:
+	$(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_py.dir/build.make pracs/CMakeFiles/pracs_generate_messages_py.dir/build
+.PHONY : pracs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_lisp
+
+# Build rule for target.
+nav_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_lisp
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named pracs_generate_messages_lisp
+
+# Build rule for target.
+pracs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pracs_generate_messages_lisp
+.PHONY : pracs_generate_messages_lisp
+
+# fast build rule for target.
+pracs_generate_messages_lisp/fast:
+	$(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build
+.PHONY : pracs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_eus
+
+# Build rule for target.
+nav_msgs_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_eus
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	$(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named nav_msgs_generate_messages_cpp
+
+# Build rule for target.
+nav_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nav_msgs_generate_messages_cpp
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
 
 #=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_nodejs
@@ -1115,14 +1180,19 @@ help:
 	@echo "... pracs_sub"
 	@echo "... pracs_node"
 	@echo "... pracs_genpy"
-	@echo "... pracs_generate_messages_py"
 	@echo "... pracs_genlisp"
-	@echo "... pracs_generate_messages_lisp"
 	@echo "... pracs_geneus"
 	@echo "... pracs_generate_messages_cpp"
 	@echo "... _pracs_generate_messages_check_deps_mysrv"
 	@echo "... _pracs_generate_messages_check_deps_mymsg"
 	@echo "... pracs_generate_messages"
+	@echo "... nav_msgs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... pracs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... pracs_generate_messages_lisp"
+	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_lisp"

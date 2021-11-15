@@ -24,10 +24,12 @@ pkg="pracs"
 type="laser_geom.py" 
 output="screen"/>
 
-<node name="fusion" 
+
+<node name="mapping" 
 pkg="pracs" 
-type="sub.py" 
+type="mapping.py" 
 output="screen"/>
+
 
 <node type="rviz" 
 name="rviz" 

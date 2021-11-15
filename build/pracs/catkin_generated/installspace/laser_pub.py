@@ -33,12 +33,15 @@ class laser_publisher:
     def sample(self):
             while not rospy.is_shutdown():
                     self.scan.header.stamp = rospy.Time.now()
+                    # if self.count == 500:
                     self.scan.ranges = []
                     self.scan.intensities = []
+                    self.count = 0
                     for i in range(self.num_readings):
                         self.scan.ranges.append(5)  # fake data
                         self.scan.intensities.append(np.random.randn())  # fake data
                     self.scan_pub.publish(self.scan)
+                    #self.count+=1
                     self.rate.sleep()
 
 if __name__ =="__main__":

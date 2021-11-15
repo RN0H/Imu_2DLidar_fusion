@@ -12,9 +12,9 @@ int main(int argc ,char** argv)
      ros::Publisher pub = nh.advertise<std_msgs::Int32>("cpp_pub_topic", 1000);
      //Define and create some messages
      std_msgs::Int32 abc;
-     abc.data = -213;
+     abc.data = 32;
      
-     ros::Rate(200);
+     ros::Rate(10);
      
      while(ros::ok)
      {

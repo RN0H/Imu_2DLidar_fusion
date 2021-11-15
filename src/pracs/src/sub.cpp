@@ -2,7 +2,7 @@
 #include <std_msgs/Int32.h>
 
 
-void getdata(const std_msgs::Int32::ConstPtr& msg){
+static void getdata(const std_msgs::Int32::ConstPtr& msg){
 	ROS_INFO("I heard: [%d]",msg->data);
 }
 

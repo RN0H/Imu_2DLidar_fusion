@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/rohan/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -67,16 +77,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -213,21 +213,6 @@ pracs_genpy/fast:
 .PHONY : pracs_genpy/fast
 
 # Convenience name for target.
-pracs/CMakeFiles/pracs_generate_messages_py.dir/rule:
-	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
-.PHONY : pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-pracs_generate_messages_py: pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
-
-.PHONY : pracs_generate_messages_py
-
-# fast build rule for target.
-pracs_generate_messages_py/fast:
-	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_py.dir/build.make pracs/CMakeFiles/pracs_generate_messages_py.dir/build
-.PHONY : pracs_generate_messages_py/fast
-
-# Convenience name for target.
 pracs/CMakeFiles/pracs_genlisp.dir/rule:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_genlisp.dir/rule
 .PHONY : pracs/CMakeFiles/pracs_genlisp.dir/rule
@@ -241,21 +226,6 @@ pracs_genlisp: pracs/CMakeFiles/pracs_genlisp.dir/rule
 pracs_genlisp/fast:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_genlisp.dir/build.make pracs/CMakeFiles/pracs_genlisp.dir/build
 .PHONY : pracs_genlisp/fast
-
-# Convenience name for target.
-pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule:
-	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
-.PHONY : pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pracs_generate_messages_lisp: pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
-
-.PHONY : pracs_generate_messages_lisp
-
-# fast build rule for target.
-pracs_generate_messages_lisp/fast:
-	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build
-.PHONY : pracs_generate_messages_lisp/fast
 
 # Convenience name for target.
 pracs/CMakeFiles/pracs_geneus.dir/rule:
@@ -331,6 +301,111 @@ pracs_generate_messages: pracs/CMakeFiles/pracs_generate_messages.dir/rule
 pracs_generate_messages/fast:
 	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_generate_messages.dir/build.make pracs/CMakeFiles/pracs_generate_messages.dir/build
 .PHONY : pracs_generate_messages/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+.PHONY : pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_py: pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_nodejs: pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/pracs_generate_messages_py.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
+.PHONY : pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+pracs_generate_messages_py: pracs/CMakeFiles/pracs_generate_messages_py.dir/rule
+
+.PHONY : pracs_generate_messages_py
+
+# fast build rule for target.
+pracs_generate_messages_py/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_py.dir/build.make pracs/CMakeFiles/pracs_generate_messages_py.dir/build
+.PHONY : pracs_generate_messages_py/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+.PHONY : pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_lisp: pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
+.PHONY : pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+pracs_generate_messages_lisp: pracs/CMakeFiles/pracs_generate_messages_lisp.dir/rule
+
+.PHONY : pracs_generate_messages_lisp
+
+# fast build rule for target.
+pracs_generate_messages_lisp/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build.make pracs/CMakeFiles/pracs_generate_messages_lisp.dir/build
+.PHONY : pracs_generate_messages_lisp/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+.PHONY : pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_eus: pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_cpp: pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	cd /home/rohan/catkin_ws/build && $(MAKE) -f pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make pracs/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 pracs/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
@@ -1157,20 +1232,25 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... pracs_sub"
 	@echo "... pracs_node"
 	@echo "... pracs_genpy"
-	@echo "... edit_cache"
-	@echo "... pracs_generate_messages_py"
 	@echo "... pracs_genlisp"
-	@echo "... pracs_generate_messages_lisp"
 	@echo "... pracs_geneus"
 	@echo "... pracs_generate_messages_cpp"
 	@echo "... _pracs_generate_messages_check_deps_mysrv"
 	@echo "... _pracs_generate_messages_check_deps_mymsg"
 	@echo "... pracs_generate_messages"
+	@echo "... install"
+	@echo "... nav_msgs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... edit_cache"
+	@echo "... pracs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... pracs_generate_messages_lisp"
+	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... install/strip"
 	@echo "... tf2_msgs_generate_messages_py"

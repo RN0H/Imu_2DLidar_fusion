@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   tf
   tf2_ros
+  nav_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -183,6 +184,7 @@ scripts/laser_geom.py
 scripts/laser_pub.py 
 scripts/imu_pub.py
 scripts/trial.py
+scripts/mapping.py
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables for installation
