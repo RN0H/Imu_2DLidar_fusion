@@ -127,3 +127,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pracs" TYPE PROGRAM FILES "/home/rohan/catkin_ws/build/pracs/catkin_generated/installspace/mapping.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pracs" TYPE PROGRAM FILES "/home/rohan/catkin_ws/build/pracs/catkin_generated/installspace/NDT_ICP.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pracs" TYPE PROGRAM FILES "/home/rohan/catkin_ws/build/pracs/catkin_generated/installspace/groundtruth.py")
+endif()
+

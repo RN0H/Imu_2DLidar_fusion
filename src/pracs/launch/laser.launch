@@ -31,10 +31,23 @@ type="mapping.py"
 output="screen"/>
 
 
+<node name="NDT_ICP" 
+pkg="pracs" 
+type="NDT_ICP.py" 
+output="screen"/>
+
+<node name="GroundTruth" 
+pkg="pracs" 
+type="groundtruth.py" 
+output="screen"/>
+
 <node type="rviz" 
 name="rviz" 
 pkg="rviz" 
 args="-d pracs/rviz/config_file.rviz" />
+
+
+
 
 </launch>
 

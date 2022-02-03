@@ -4,7 +4,7 @@
 #chmod +x $(file) for making it exec
 #source ~/$(catkin_ws)/devel/setup.bash copy to bashrc   Note: only need to copy it once for all src under source folder
 import rospy
-
+import ros_numpy
 from sensor_msgs.msg import LaserScan, PointCloud2 as pcl2
 from laser_geometry import LaserProjection
 

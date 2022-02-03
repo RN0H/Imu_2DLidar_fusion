@@ -29,8 +29,7 @@ class Dynamic_tf_broadcaster:
       def sample(self):
           while not rospy.is_shutdown():
                try:
-                  msg = self.Buffer.lookup_transform("imu_frame", "laser_frame",rospy.Time())
-
+                  msg = self.Buffer.lookup_transform("imu_frame", "laser_frame",rospy.Time.now(), rospy.Duration(0.02))
                   self.tf_msg_pub.x = msg.transform.translation.x
                   self.tf_msg_pub.y = msg.transform.translation.y
                   self.tf_msg_pub.z = msg.transform.translation.z

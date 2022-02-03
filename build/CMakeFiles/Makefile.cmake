@@ -22,6 +22,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/rohan/catkin_ws/src/CMakeLists.txt"
   "/home/rohan/catkin_ws/src/pracs/CMakeLists.txt"
   "/home/rohan/catkin_ws/src/pracs/package.xml"
+  "/home/rohan/catkin_ws/src/pracs/scripts/NDT_ICP.py"
+  "/home/rohan/catkin_ws/src/pracs/scripts/groundtruth.py"
   "/home/rohan/catkin_ws/src/pracs/scripts/imu_pub.py"
   "/home/rohan/catkin_ws/src/pracs/scripts/laser_geom.py"
   "/home/rohan/catkin_ws/src/pracs/scripts/laser_pub.py"
